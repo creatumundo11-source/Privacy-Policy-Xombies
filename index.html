@@ -16,39 +16,85 @@
   h1 span { color: var(--accent); }
   h2 { margin: 32px 0 8px; font-size: 19px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
   .meta { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
-  ul { padding-left: 22px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid var(--line); }
+  th { background: rgba(127,127,127,0.08); }
+  ul, ol { padding-left: 22px; }
   a { color: var(--accent); }
+  @media (max-width: 560px) { table, thead, tbody, tr, th, td { font-size: 14px; } }
 </style>
 </head>
 <body>
 <main>
   <h1>XOMBIES <span>–</span> Privacy Policy</h1>
-  <div class="meta">Effective date: October 15, 2026</div>
+  <div class="meta">Effective date: October 19, 2026</div>
 
-  <p>This policy explains what information the virtual reality game <strong>Xombies</strong> ("the game", "we") handles when you play it on Meta Quest. In short: <strong>we do not collect, store on our own servers, sell or share your personal information.</strong> Online leaderboards and achievements are provided by Meta.</p>
+  <p>This policy explains what user data the virtual reality game <strong>Xombies</strong> ("the app", "we") collects and processes when you play it on Meta Quest, how that data is used, who can see it, how long it is kept, and how you can ask us to delete it.</p>
 
-  <h2>Information we collect</h2>
-  <p>We do not collect any personal information ourselves. The game has no user accounts of its own, no analytics and no advertising, and we do not operate any servers.</p>
+  <h2>1. Data the app collects and how it is collected</h2>
+  <p>Xombies uses the Meta Horizon Platform SDK. Through it, the app collects and processes the following data from your Meta account while you play:</p>
+  <table>
+    <thead><tr><th>Data</th><th>How it is collected</th><th>What it is used for</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>User ID</strong> (your Meta account's unique identifier for this app)</td>
+        <td>Provided automatically by the Meta Horizon Platform SDK when the app starts and when it uses online features.</td>
+        <td>
+          <ul>
+            <li>To verify that you own a legitimate copy of the game (entitlement check), every time the app starts.</li>
+            <li>To save your best Endless-mode result on the online leaderboards under your account.</li>
+            <li>To record your achievement unlocks and progress on your account.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>User profile</strong>: your Meta username / display name</td>
+        <td>Provided by the Meta Horizon Platform SDK together with the leaderboard entries.</td>
+        <td>To show the names of the players on the "Top Survivors" leaderboard inside the game (including your own name next to your result).</td>
+      </tr>
+      <tr>
+        <td><strong>Game results</strong>: waves survived and score in Endless mode, difficulty, achievements earned</td>
+        <td>Sent by the app to Meta's leaderboard and achievement services when you finish an Endless run or unlock an achievement.</td>
+        <td>To rank players on the leaderboards and to show your achievements on your Meta profile.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>We do <strong>not</strong> collect your real name, email address, location, contacts, voice, camera images, hand or body tracking data, or payment information, and the app contains no advertising and no third-party analytics.</p>
 
-  <h2>Information stored on your device</h2>
-  <p>The game saves a small amount of data <strong>only on your headset</strong> so it works the way you left it:</p>
+  <h2>2. Where the data is stored and who can see it</h2>
   <ul>
-    <li>Your settings (for example volume, turning style, comfort vignette and graphics options).</li>
-    <li>Your progress (for example whether you completed the tutorial and which levels are unlocked).</li>
+    <li><strong>Leaderboards and achievements</strong> are stored by Meta on its servers, linked to your Meta account. Your username and your best result on each leaderboard are visible to other Xombies players. Your achievements are visible according to your Meta privacy settings.</li>
+    <li><strong>We do not run our own servers</strong> and do not copy, sell, rent or share this data with anyone. As the developer we can only see the same leaderboard entries that any player can see, through Meta's developer tools.</li>
+    <li>Meta's own processing of your account data is described in the <a href="https://www.meta.com/legal/privacy-policy/" rel="noopener">Meta Privacy Policy</a>.</li>
   </ul>
-  <p>This data never leaves your device. You can delete it at any time by clearing the app's data or uninstalling the game.</p>
 
-  <h2>Meta platform services</h2>
-  <p>When the game starts, it uses the Meta Horizon platform to verify that you own a legitimate copy (an "entitlement check"). This check is performed by Meta; we do not receive your personal information from it. The game also uses Meta platform features: <strong>leaderboards</strong> for Endless mode (your best result is sent to Meta and shown together with your Meta username to other players) and <strong>achievements</strong> (your progress is stored by Meta on your account). These features are operated by Meta; we only see the public leaderboard entries that any player can see. Meta's handling of your data is described in the <a href="https://www.meta.com/legal/privacy-policy/" rel="noopener">Meta Privacy Policy</a>.</p>
+  <h2>3. Data stored only on your headset</h2>
+  <p>The game also saves a small amount of data <strong>only on your headset</strong> so it works the way you left it: your settings (language, volume, turning style, comfort vignette, graphics), your progress (tutorial completed, unlocked levels, difficulty) and your personal Endless records. This data never leaves your device.</p>
 
-  <h2>Children</h2>
-  <p>The game is intended for players old enough to use Meta Quest under Meta's terms and is rated for mature audiences. We do not knowingly collect information from anyone, including children.</p>
+  <h2>4. How long the data is kept</h2>
+  <ul>
+    <li>Leaderboard entries and achievements are kept while the game's leaderboards and achievements exist, or until you ask us to delete them (see section 5).</li>
+    <li>Data on your headset is kept until you clear the app's data or uninstall the game.</li>
+  </ul>
 
-  <h2>Changes to this policy</h2>
-  <p>If the game changes in a way that affects your privacy (for example, adding online features), we will update this page and its effective date before that change is released.</p>
+  <h2>5. How to request deletion of your data</h2>
+  <p>You can ask us at any time to delete the data associated with your account in Xombies:</p>
+  <ol>
+    <li>Send an email to <a href="mailto:creatumundo11@gmail.com?subject=Xombies%20data%20deletion%20request">creatumundo11@gmail.com</a> with the subject <strong>"Xombies data deletion request"</strong>.</li>
+    <li>Include the Meta username you use in the game, so we can find your entries.</li>
+    <li>We will delete your entries from the Xombies leaderboards and reset your Xombies achievement progress through Meta's developer tools, and confirm by email, within <strong>30 days</strong>.</li>
+  </ol>
+  <p>To delete the data stored on your headset, clear the app's data or uninstall Xombies. You can also delete your whole Meta account and its data from your Meta account settings, as described in the <a href="https://www.meta.com/legal/privacy-policy/" rel="noopener">Meta Privacy Policy</a>.</p>
 
-  <h2>Contact</h2>
-  <p>Questions about this policy: <a href="mailto:creatumundo11@gmail.com">creatumundo11@gmail.com</a></p>
+  <h2>6. Children</h2>
+  <p>The game is intended for players old enough to use Meta Quest under Meta's terms and is rated for mature audiences because of its violence. We do not knowingly collect data from children. If you believe a child has used the game, contact us and we will delete the related data as described in section 5.</p>
+
+  <h2>7. Changes to this policy</h2>
+  <p>If the game changes in a way that affects the data it collects (for example, new online features), we will update this page and its effective date before that change is released.</p>
+
+  <h2>8. Contact</h2>
+  <p>Developer: Richard Giraldo Torres<br>
+  Questions or requests about this policy: <a href="mailto:creatumundo11@gmail.com">creatumundo11@gmail.com</a></p>
 </main>
 </body>
 </html>
