@@ -4,97 +4,196 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Xombies – Privacy Policy</title>
+<meta name="description" content="Privacy policy of Xombies, the zombie wave-defense VR game for Meta Quest: what data it collects, how it is used and how to request deletion.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
 <style>
-  :root { --bg: #ffffff; --text: #1c1c1f; --muted: #5f5f66; --accent: #c62020; --line: #e4e4e7; }
+  /* Paleta del juego: cielo naranja, bloques blancos/grises, zombies rojos, sombra roja oscura del logo. */
+  :root {
+    --page: #f2f0ec; --card: #ffffff; --text: #1d1d22; --muted: #5d5d66; --line: #e3e0da;
+    --red: #c81e1e; --red-deep: #6e0f0f; --orange: #ff6a00; --orange-soft: #fff1e6; --charcoal: #2a2a30;
+    --stripe: rgba(0,0,0,0.035); --shadow: 0 18px 50px rgba(40,20,10,0.16);
+  }
   @media (prefers-color-scheme: dark) {
-    :root { --bg: #111113; --text: #ececee; --muted: #a0a0a8; --accent: #ef4444; --line: #2a2a2e; }
+    :root:not([data-theme="light"]) {
+      --page: #121214; --card: #1b1b1f; --text: #ececf0; --muted: #a3a3ad; --line: #2e2e34;
+      --red: #ff4a3d; --red-deep: #ff8a7a; --orange: #ff7a1a; --orange-soft: #2a1a10; --charcoal: #0b0b0d;
+      --stripe: rgba(255,255,255,0.025); --shadow: 0 18px 50px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --page: #121214; --card: #1b1b1f; --text: #ececf0; --muted: #a3a3ad; --line: #2e2e34;
+    --red: #ff4a3d; --red-deep: #ff8a7a; --orange: #ff7a1a; --orange-soft: #2a1a10; --charcoal: #0b0b0d;
+    --stripe: rgba(255,255,255,0.025); --shadow: 0 18px 50px rgba(0,0,0,0.5);
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  main { max-width: 760px; margin: 0 auto; padding: 40px 16px 64px; }
-  h1 { margin: 0 0 4px; font-size: 30px; }
-  h1 span { color: var(--accent); }
-  h2 { margin: 32px 0 8px; font-size: 19px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
-  .meta { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
-  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 15px; }
-  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid var(--line); }
-  th { background: rgba(127,127,127,0.08); }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; color: var(--text); font: 17px/1.65 "Lato", system-ui, -apple-system, "Segoe UI", sans-serif;
+    background-color: var(--page);
+    /* Diagonales suaves, como las paredes geométricas del juego. */
+    background-image: repeating-linear-gradient(135deg, var(--stripe) 0 2px, transparent 2px 46px);
+  }
+
+  /* ---------- Cabecera con el arte del juego ---------- */
+  .hero { position: relative; height: clamp(170px, 30vw, 380px); overflow: hidden; background: var(--orange); }
+  .hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
+  .hero::after { content: ""; position: absolute; inset: auto 0 0 0; height: 45%;
+    background: linear-gradient(to bottom, transparent, var(--page)); }
+
+  /* ---------- Tarjeta del texto ---------- */
+  main { position: relative; z-index: 1; max-width: 860px; margin: clamp(-70px, -6vw, -30px) auto 0; padding: 0 16px 56px; }
+  .card { background: var(--card); border-radius: 16px; box-shadow: var(--shadow); border-top: 6px solid var(--red);
+    padding: clamp(22px, 5vw, 48px); }
+  .kicker { font: 800 13px/1 "Montserrat", sans-serif; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin: 0 0 10px; }
+  h1 { font: 900 clamp(30px, 6vw, 48px)/1.05 "Montserrat", sans-serif; text-transform: uppercase; margin: 0 0 14px;
+    letter-spacing: .01em; text-shadow: 3px 3px 0 rgba(200,30,30,0.18); }
+  .date { display: inline-block; font-size: 14px; font-weight: 700; color: var(--muted); background: var(--orange-soft);
+    border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; margin-bottom: 22px; }
+  .intro { font-size: 18px; }
+
+  /* Resumen rápido */
+  .tldr { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 26px 0 8px; }
+  .tldr div { background: var(--orange-soft); border: 1px solid var(--line); border-left: 4px solid var(--orange);
+    border-radius: 10px; padding: 14px 14px 12px; font-size: 15px; line-height: 1.45; }
+  .tldr b { display: block; font: 800 14px/1.2 "Montserrat", sans-serif; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+  @media (max-width: 680px) { .tldr { grid-template-columns: 1fr; } }
+
+  /* Secciones numeradas, con arañazos como los del fortín */
+  h2 { position: relative; display: flex; align-items: center; gap: 12px; margin: 40px 0 12px; padding-bottom: 10px;
+    font: 800 clamp(19px, 3vw, 23px)/1.25 "Montserrat", sans-serif; border-bottom: 2px solid var(--line); }
+  h2 .n { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%; background: var(--red); color: #fff;
+    display: grid; place-items: center; font-size: 16px; box-shadow: 2px 2px 0 var(--red-deep); }
+  h2::after { content: ""; position: absolute; right: 0; bottom: -2px; width: 46px; height: 46px; opacity: .55;
+    background: url("assets/claws.png") center / contain no-repeat; pointer-events: none; }
+  p, li { margin: 0 0 10px; }
   ul, ol { padding-left: 22px; }
-  a { color: var(--accent); }
-  @media (max-width: 560px) { table, thead, tbody, tr, th, td { font-size: 14px; } }
+  li::marker { color: var(--red); font-weight: 700; }
+  a { color: var(--red); font-weight: 700; text-underline-offset: 3px; }
+  a:hover { color: var(--orange); }
+  strong { color: inherit; }
+
+  /* Tabla de datos (en el móvil se convierte en fichas) */
+  .table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 16px 0 18px; font-size: 15.5px;
+    border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .table th { background: var(--charcoal); color: #fff; text-align: left; padding: 11px 14px;
+    font: 800 13px/1.2 "Montserrat", sans-serif; text-transform: uppercase; letter-spacing: .06em; }
+  .table td { vertical-align: top; padding: 13px 14px; border-top: 1px solid var(--line); }
+  .table tr:nth-child(even) td { background: rgba(127,127,127,0.05); }
+  .table td:first-child { width: 26%; }
+  .table ul { margin: 0; padding-left: 18px; }
+  @media (max-width: 680px) {
+    .table, .table tbody, .table tr, .table td { display: block; width: 100% !important; }
+    .table thead { display: none; }
+    .table tr { border-top: 4px solid var(--red); }
+    .table tr:first-child { border-top: none; }
+    .table td { border-top: none; padding: 8px 14px; }
+    .table td::before { content: attr(data-label); display: block; font: 800 11px/1.4 "Montserrat", sans-serif;
+      text-transform: uppercase; letter-spacing: .08em; color: var(--red); }
+  }
+  .callout { background: var(--orange-soft); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .steps li { padding-left: 4px; }
+
+  /* ---------- Pie ---------- */
+  footer { background: var(--charcoal); color: #cfcfd6; text-align: center; padding: 34px 16px 40px; font-size: 14px; }
+  footer img { width: min(260px, 70vw); height: auto; display: block; margin: 0 auto 14px;
+    filter: drop-shadow(0 4px 0 rgba(0,0,0,.35)); }
+  footer a { color: #fff; }
 </style>
 </head>
 <body>
+<header class="hero">
+  <img src="assets/hero.jpg" alt="Xombies: a horde of red zombies running toward the player under an orange sky" width="1800" height="540">
+</header>
+
 <main>
-  <h1>XOMBIES <span>–</span> Privacy Policy</h1>
-  <div class="meta">Effective date: October 19, 2026</div>
+  <article class="card">
+    <p class="kicker">Xombies · Meta Quest</p>
+    <h1>Privacy Policy</h1>
+    <div class="date">Effective date: October 19, 2026</div>
 
-  <p>This policy explains what user data the virtual reality game <strong>Xombies</strong> ("the app", "we") collects and processes when you play it on Meta Quest, how that data is used, who can see it, how long it is kept, and how you can ask us to delete it.</p>
+    <p class="intro">This policy explains what user data the virtual reality game <strong>Xombies</strong> ("the app", "we") collects and processes when you play it on Meta Quest, how that data is used, who can see it, how long it is kept, and how you can ask us to delete it.</p>
 
-  <h2>1. Data the app collects and how it is collected</h2>
-  <p>Xombies uses the Meta Horizon Platform SDK. Through it, the app collects and processes the following data from your Meta account while you play:</p>
-  <table>
-    <thead><tr><th>Data</th><th>How it is collected</th><th>What it is used for</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><strong>User ID</strong> (your Meta account's unique identifier for this app)</td>
-        <td>Provided automatically by the Meta Horizon Platform SDK when the app starts and when it uses online features.</td>
-        <td>
-          <ul>
-            <li>To verify that you own a legitimate copy of the game (entitlement check), every time the app starts.</li>
-            <li>To save your best Endless-mode result on the online leaderboards under your account.</li>
-            <li>To record your achievement unlocks and progress on your account.</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td><strong>User profile</strong>: your Meta username / display name</td>
-        <td>Provided by the Meta Horizon Platform SDK together with the leaderboard entries.</td>
-        <td>To show the names of the players on the "Top Survivors" leaderboard inside the game (including your own name next to your result).</td>
-      </tr>
-      <tr>
-        <td><strong>Game results</strong>: waves survived and score in Endless mode, difficulty, achievements earned</td>
-        <td>Sent by the app to Meta's leaderboard and achievement services when you finish an Endless run or unlock an achievement.</td>
-        <td>To rank players on the leaderboards and to show your achievements on your Meta profile.</td>
-      </tr>
-    </tbody>
-  </table>
-  <p>We do <strong>not</strong> collect your real name, email address, location, contacts, voice, camera images, hand or body tracking data, or payment information, and the app contains no advertising and no third-party analytics.</p>
+    <div class="tldr" aria-label="Summary">
+      <div><b>What we use</b>Your Meta user ID and username, plus your Endless scores and achievements.</div>
+      <div><b>What for</b>Purchase check, online leaderboards and achievements. No ads, no analytics.</div>
+      <div><b>Your control</b>Email us anytime to delete your data. We answer within 30 days.</div>
+    </div>
 
-  <h2>2. Where the data is stored and who can see it</h2>
-  <ul>
-    <li><strong>Leaderboards and achievements</strong> are stored by Meta on its servers, linked to your Meta account. Your username and your best result on each leaderboard are visible to other Xombies players. Your achievements are visible according to your Meta privacy settings.</li>
-    <li><strong>We do not run our own servers</strong> and do not copy, sell, rent or share this data with anyone. As the developer we can only see the same leaderboard entries that any player can see, through Meta's developer tools.</li>
-    <li>Meta's own processing of your account data is described in the <a href="https://www.meta.com/legal/privacy-policy/" rel="noopener">Meta Privacy Policy</a>.</li>
-  </ul>
+    <h2><span class="n">1</span>Data the app collects and how it is collected</h2>
+    <p>Xombies uses the Meta Horizon Platform SDK. Through it, the app collects and processes the following data from your Meta account while you play:</p>
+    <table class="table">
+      <thead><tr><th>Data</th><th>How it is collected</th><th>What it is used for</th></tr></thead>
+      <tbody>
+        <tr>
+          <td data-label="Data"><strong>User ID</strong> (your Meta account's unique identifier for this app)</td>
+          <td data-label="How it is collected">Provided automatically by the Meta Horizon Platform SDK when the app starts and when it uses online features.</td>
+          <td data-label="What it is used for">
+            <ul>
+              <li>To verify that you own a legitimate copy of the game (entitlement check), every time the app starts.</li>
+              <li>To save your best Endless-mode result on the online leaderboards under your account.</li>
+              <li>To record your achievement unlocks and progress on your account.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Data"><strong>User profile</strong>: your Meta username / display name</td>
+          <td data-label="How it is collected">Provided by the Meta Horizon Platform SDK together with the leaderboard entries.</td>
+          <td data-label="What it is used for">To show the names of the players on the "Top Survivors" leaderboard inside the game (including your own name next to your result).</td>
+        </tr>
+        <tr>
+          <td data-label="Data"><strong>Game results</strong>: waves survived and score in Endless mode, difficulty, achievements earned</td>
+          <td data-label="How it is collected">Sent by the app to Meta's leaderboard and achievement services when you finish an Endless run or unlock an achievement.</td>
+          <td data-label="What it is used for">To rank players on the leaderboards and to show your achievements on your Meta profile.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="callout">We do <strong>not</strong> collect your real name, email address, location, contacts, voice, camera images, hand or body tracking data, or payment information, and the app contains no advertising and no third-party analytics.</p>
 
-  <h2>3. Data stored only on your headset</h2>
-  <p>The game also saves a small amount of data <strong>only on your headset</strong> so it works the way you left it: your settings (language, volume, turning style, comfort vignette, graphics), your progress (tutorial completed, unlocked levels, difficulty) and your personal Endless records. This data never leaves your device.</p>
+    <h2><span class="n">2</span>Where the data is stored and who can see it</h2>
+    <ul>
+      <li><strong>Leaderboards and achievements</strong> are stored by Meta on its servers, linked to your Meta account. Your username and your best result on each leaderboard are visible to other Xombies players. Your achievements are visible according to your Meta privacy settings.</li>
+      <li><strong>We do not run our own servers</strong> and do not copy, sell, rent or share this data with anyone. As the developer we can only see the same leaderboard entries that any player can see, through Meta's developer tools.</li>
+      <li>Meta's own processing of your account data is described in the <a href="https://www.meta.com/legal/privacy-policy/" rel="noopener">Meta Privacy Policy</a>.</li>
+    </ul>
 
-  <h2>4. How long the data is kept</h2>
-  <ul>
-    <li>Leaderboard entries and achievements are kept while the game's leaderboards and achievements exist, or until you ask us to delete them (see section 5).</li>
-    <li>Data on your headset is kept until you clear the app's data or uninstall the game.</li>
-  </ul>
+    <h2><span class="n">3</span>Data stored only on your headset</h2>
+    <p>The game also saves a small amount of data <strong>only on your headset</strong> so it works the way you left it: your settings (language, volume, turning style, comfort vignette, graphics), your progress (tutorial completed, unlocked levels, difficulty) and your personal Endless records. This data never leaves your device.</p>
 
-  <h2>5. How to request deletion of your data</h2>
-  <p>You can ask us at any time to delete the data associated with your account in Xombies:</p>
-  <ol>
-    <li>Send an email to <a href="mailto:creatumundo11@gmail.com?subject=Xombies%20data%20deletion%20request">creatumundo11@gmail.com</a> with the subject <strong>"Xombies data deletion request"</strong>.</li>
-    <li>Include the Meta username you use in the game, so we can find your entries.</li>
-    <li>Within <strong>30 days</strong> we will delete your entries from the Xombies leaderboards, remove your Xombies achievement progress where Meta's developer tools allow it (otherwise we will tell you how to request it from Meta), and confirm by email.</li>
-  </ol>
-  <p>To delete the data stored on your headset, clear the app's data or uninstall Xombies. You can also delete your whole Meta account and its data from your Meta account settings, as described in the <a href="https://www.meta.com/legal/privacy-policy/" rel="noopener">Meta Privacy Policy</a>.</p>
+    <h2><span class="n">4</span>How long the data is kept</h2>
+    <ul>
+      <li>Leaderboard entries and achievements are kept while the game's leaderboards and achievements exist, or until you ask us to delete them (see section 5).</li>
+      <li>Data on your headset is kept until you clear the app's data or uninstall the game.</li>
+    </ul>
 
-  <h2>6. Children</h2>
-  <p>The game is intended for players old enough to use Meta Quest under Meta's terms and is rated for mature audiences because of its violence. We do not knowingly collect data from children. If you believe a child has used the game, contact us and we will delete the related data as described in section 5.</p>
+    <h2 id="delete"><span class="n">5</span>How to request deletion of your data</h2>
+    <p>You can ask us at any time to delete the data associated with your account in Xombies:</p>
+    <ol class="steps">
+      <li>Send an email to <a href="mailto:creatumundo11@gmail.com?subject=Xombies%20data%20deletion%20request">creatumundo11@gmail.com</a> with the subject <strong>"Xombies data deletion request"</strong>.</li>
+      <li>Include the Meta username you use in the game, so we can find your entries.</li>
+      <li>Within <strong>30 days</strong> we will delete your entries from the Xombies leaderboards, remove your Xombies achievement progress where Meta's developer tools allow it (otherwise we will tell you how to request it from Meta), and confirm by email.</li>
+    </ol>
+    <p>To delete the data stored on your headset, clear the app's data or uninstall Xombies. You can also delete your whole Meta account and its data from your Meta account settings, as described in the <a href="https://www.meta.com/legal/privacy-policy/" rel="noopener">Meta Privacy Policy</a>.</p>
 
-  <h2>7. Changes to this policy</h2>
-  <p>If the game changes in a way that affects the data it collects (for example, new online features), we will update this page and its effective date before that change is released.</p>
+    <h2><span class="n">6</span>Children</h2>
+    <p>The game is intended for players old enough to use Meta Quest under Meta's terms and is rated for mature audiences because of its violence. We do not knowingly collect data from children. If you believe a child has used the game, contact us and we will delete the related data as described in section 5.</p>
 
-  <h2>8. Contact</h2>
-  <p>Developer: Richard Giraldo Torres<br>
-  Questions or requests about this policy: <a href="mailto:creatumundo11@gmail.com">creatumundo11@gmail.com</a></p>
+    <h2><span class="n">7</span>Changes to this policy</h2>
+    <p>If the game changes in a way that affects the data it collects (for example, new online features), we will update this page and its effective date before that change is released.</p>
+
+    <h2><span class="n">8</span>Contact</h2>
+    <p>Developer: Richard Giraldo Torres<br>
+    Questions or requests about this policy: <a href="mailto:creatumundo11@gmail.com">creatumundo11@gmail.com</a></p>
+  </article>
 </main>
+
+<footer>
+  <img src="assets/logo.png" alt="Xombies" width="720" height="163">
+  <div>Xombies · a VR zombie wave-defense game for Meta Quest</div>
+  <div>© 2026 Richard Giraldo Torres · <a href="mailto:creatumundo11@gmail.com">creatumundo11@gmail.com</a></div>
+</footer>
 </body>
 </html>
